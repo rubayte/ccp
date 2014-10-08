@@ -1,0 +1,81 @@
+<div class="row-fluid">
+	<div class="container">
+	
+	
+		<div span="12">
+			
+			<div class="tabbable"> 
+  				<ul class="nav nav-tabs">
+    				<li class="active"><a href="#tab1" data-toggle="tab">Overview</a></li>
+    				<li><a href="#tab2" data-toggle="tab">View files</a></li>
+    				<li><a href="#tab3" data-toggle="tab">Upload</a></li>
+  				</ul>
+  				<div class="tab-content">
+    				<div class="tab-pane active" id="tab1">
+      					<p>data overview with sample - feature heatmap</p>
+    				</div>
+    				
+    				<div class="tab-pane" id="tab2">
+    						
+    						<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>
+											File(s)
+										</td>
+										<th>
+											Actions
+										<td>
+									</tr>		
+								</thead>	
+								<tbody>
+									<% if @files.length == 0 %>
+									<tr>
+										<td>
+											No file(s) available.
+										</td>
+									</tr>
+									<% else -%>
+									<ul>
+										<% Dir.foreach(Rails.root.join('fileloc')) do |file|-%>
+											<% next if file =~ /^\./ -%>
+										<tr>
+											<td>
+												<li> <%= file %> </li>
+											</td>
+											<td>	
+												<%= link_to :"View", :controller => "webportal", :action => "#" %> |
+												<%= link_to :"Download", :controller => "webportal", :action => "#" %>
+											</td>
+										</tr>
+										<% end -%>	
+									</ul>
+									<% end -%>
+								</tbody>
+								</table>
+      					
+    				</div>
+
+    				<div class="tab-pane" id="tab3">
+    					
+      					<p><h3>Upload data files and resources</h3></p>
+      					
+      					<p>
+      					<%= form_tag({:controller => 'webportal',:action => '#'}, :multipart => true) do %>
+							File: <%= file_field_tag 'file'%><br><br>
+							Type: <%= select_tag "fileType", options_for_select(@ftypes) %><br><br>
+							Work-group type: <%= select_tag "wgType", options_for_select(@wgtypes) %><br><br>
+							Screening type: <%= select_tag "sType", options_for_select(@stypes) %><br><br>
+							Comments: <%= text_area_tag 'comments', nil, size: "5x5" %><br><br>
+	          				<%= submit_tag 	"Upload",  :class => 'btn btn-primary btn-medium' %>
+				       	<% end %>
+						</p>
+    				</div>
+    			
+  				</div>
+			</div>
+		
+		</div>
+	
+	</div>
+</div>
