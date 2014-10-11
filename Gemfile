@@ -4,7 +4,7 @@ gem 'rails', '3.2.8'
 gem 'will_paginate', '~> 3.0'
 gem 'capistrano'
 gem 'jquery-datatables-rails'
-gem 'therubyracer' ## only uncomment this in production
+gem 'therubyracer'
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
 

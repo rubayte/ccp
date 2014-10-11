@@ -1,0 +1,18 @@
+<div class="row-fluid">
+		
+	<div class="container">
+		
+		<div align="center">
+
+		<%= form_tag(:controller => 'users', :action => 'autheticateUser') do %>				
+			<%= text_field_tag :login_username , nil, :placeholder => "username" %></br>
+			<%= password_field_tag :login_password, nil,:placeholder => "password" %></br>
+			<%= submit_tag "Login", :class => 'btn btn-primary btn-large' %>		
+		<% end -%>	
+
+		</div>
+		
+	</div>
+	
+		
+</div>

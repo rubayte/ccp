@@ -1,5 +1,7 @@
 class WebportalController < ApplicationController
-
+  
+  before_filter :authenticate_user, :only => [:index,:data,:project, :members]
+  
   def index
       
   end
@@ -12,6 +14,10 @@ class WebportalController < ApplicationController
   end
   
   def project
+    
+  end
+  
+  def members
     
   end
 
