@@ -1,0 +1,9 @@
+minutes:
+
+marco
+1. mutagenesis data from sanger for lung cancer type, some data before the next meetig. 21 samples. miseq illumina. more samples will follow.
+samples are cell lines.
+
+2. tumors from mouse models.
+
+

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :save_login_state, :only => [:login]
+  before_filter :save_login_state, :only => [:login, :autheticateUser]
 
   def login
     
@@ -23,6 +23,5 @@ class UsersController < ApplicationController
     session[:user] = nil
     redirect_to :login
   end
-
-
+  
 end

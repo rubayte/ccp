@@ -40,3 +40,7 @@ body{
 		background-color: #CCFFCC;
 		border:1px solid green;
 }
+.container .content {
+    display: none;
+    padding : 5px;
+}
