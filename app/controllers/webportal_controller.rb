@@ -165,6 +165,19 @@ class WebportalController < ApplicationController
     
   end
   
+  def overview
+    @ctypes = ['Lung','Melanoma','Colorectal','Breast','Others']
+    @stypes = ['sample','cell line']
+  end
+  
+  def filterOverview
+    @msg = "under development"
+    redirect_to :overview
+    flash[:notice] = @msg
+    flash[:color]= "invalid"
+    return
+  end
+  
   def authenticateAdmin
     @msg = "under development"
     redirect_to :index
